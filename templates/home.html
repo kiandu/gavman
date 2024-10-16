@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h2 class="text-center">Hello {{user.username}}, Portal Homepage </h2>
+
+ <!-- LOGGED IN USER -->
+ <!-- LOGGED IN USER -->
+ <!-- LOGGED IN USER -->
+
+{% if user.is_authenticated %}
+
+ <!-- CRIME REPORT -->
+ <!-- CRIME REPORT -->
+<div class="container">
+  <div class="row">
+      <div class="col-md-4 mb-4">
+          <div class="card" style="width:300px">
+              <img src="{% static 'images/report.png' %}" class="card-img-top" style="height: 200px;">
+              <div class="card-body">
+                  <h5 class="card-title">Crime Report</h5>
+                  <p class="card-text">Prepare Incident details and Submit below.</p>
+                  <a href="{% url 'report' %}" class="btn btn-primary">Create Report</a>
+              </div>
+          </div>
+      </div>
+
+<!-- POLICE CLEARANCE -->
+<!-- POLICE CLEARANCE -->
+      <div class="col-md-4 ">
+          <div class="card" style="width:300px">
+              <img src="{% static 'images/clearance.png' %}" class="card-img-top" style="height: 200px;">
+              <div class="card-body">
+                  <h5 class="card-title">Police Clearance</h5>
+                  <p class="card-text">Click the button below to Apply for a Police Clearance Certificate.</p>
+                  <a href="{% url 'report' %}" class="btn btn-primary">Police Clearance</a>
+              </div>
+          </div>
+      </div>
+
+<!-- E-PASSPORT -->
+<!-- E-PASSPORT -->
+      <div class="col-md-4 ">
+        <div class="card" style="width:300px">
+            <img src="{% static 'images/passport.png' %}" class="card-img-top" style="height: 200px;">
+            <div class="card-body">
+                <h5 class="card-title">e-Passport</h5>
+                <p class="card-text">Follow the link below to Apply for a Passport Now.</p>
+                <a href="{% url 'report' %}" class="btn btn-primary">Passport</a>
+            </div>
+        </div>
+    </div>          
+  </div>
+</div>
+
+<!-- E-Gov POLICY MANAGEMENT -->
+ <!-- E-Gov POLICY MANAGEMENT -->
+<!-- E-Gov POLICY MANAGEMENT -->
+<div class="col-md-4 ">
+    <div class="card" style="width:300px">
+        <img src="{% static 'images/passport.png' %}" class="card-img-top" style="height: 200px;">
+        <div class="card-body">
+            <h5 class="card-title">POLICY MANGAEMENT</h5>
+            <p class="card-text">Follow the link below to Access the Policy Management Dashboard</p>
+            <a href="{% url 'policy' %}" class="btn btn-primary">Policy</a>
+        </div>
+    </div>
+</div>          
+</div>
+</div>
+
+ <!-- LOGGED OUT USER --> 
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit"class="button"s>Log Out</button>
+</form>
+
+{% else %}
+<p>You are not logged in</p>
+<div class="container d-flex justify-content-center align-items-center vh-60">
+  <div class="col-md-6 col-sm-12">
+      <div class="card" style="width: 18rem;">
+          <img src="{% static 'images/logo.png' %}" class="card-img-top" style="height: 200px;">
+          <div class="card-body">
+              <h5 class="card-title">User Login</h5>
+              <p class="card-text">Follow links below to Login or Register</p>
+              <a href="{% url 'login' %}" id="Button1" style="background-color: green" class="btn btn-primary">Login/Signup</a> 
+              <br><br>
+              <p class="card-text"> Don't have an account? Create one 
+              <a class="btn btn-primary" href="{% url 'signup' %}">Register here</a></p>
+            </div>
+         
+            <br>
+      </div>
+  </div>
+</div>
+{% endif %}
+
+
+{% endblock %}
