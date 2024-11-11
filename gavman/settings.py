@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     'bootstrap5',
-    'report',
+    #'report',
     'clearance',
     'passport',
     'policy',
@@ -76,7 +76,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         "DIRS": [BASE_DIR / 'templates',
                             'accounts',
-                            'report',
+                            #'report',
                             'clearance',
                             'passport',
                             'policy'], #new 
@@ -145,7 +145,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'templates/static'),
-    os.path.join(BASE_DIR, 'report/templates/static'),
+    #os.path.join(BASE_DIR, 'report/templates/static'),
     os.path.join(BASE_DIR, 'passport/templates/static'),
 
 ]
